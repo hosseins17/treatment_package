@@ -13,7 +13,7 @@
             <div class="card">
                 <img src="https://www.genittiottici.com/wp-content/uploads/2018/11/blog-ph-1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">title1</h5>
+                    <h5 class="card-title">treatment 1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <a href='/form.php'>
                         <button type="button" class="btn btn-warning">
@@ -27,7 +27,7 @@
             <div class="card">
                 <img src="https://www.genittiottici.com/wp-content/uploads/2018/11/blog-ph-1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title 2</h5>
+                    <h5 class="card-title">treatment 2</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                     <a href='/form.php'>
                         <button type="button" class="btn btn-warning">
@@ -41,7 +41,7 @@
             <div class="card">
                 <img src="https://www.genittiottici.com/wp-content/uploads/2018/11/blog-ph-1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title3</h5>
+                    <h5 class="card-title">treatment 3</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <a href='/form.php'>
                         <button type="button" class="btn btn-warning">

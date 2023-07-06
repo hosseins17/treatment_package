@@ -1,0 +1,12 @@
+{
+    "name": "sharavy/shahravy-plugin",
+    "authors": [
+        {
+            "name": "Alireza Sayyah",
+            "email": "alireza.syh@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.28"
+    }
+}

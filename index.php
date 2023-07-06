@@ -1,9 +1,9 @@
 <?php
 // اطلاعات اتصال به دیتابیس
-$servername = "نام سرور";
-$username = "نام کاربری";
-$password = "رمز عبور";
-$dbname = "نام دیتابیس";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "p5db";
 
 try {
     // اتصال به دیتابیس با استفاده از PDO
@@ -21,7 +21,7 @@ try {
     if (!$tableExists) {
         // ایجاد جدول کاربران
         $sql_users = "CREATE TABLE users (
-            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             username VARCHAR(255) NOT NULL,
             password VARCHAR(255) NOT NULL
         )";
@@ -37,7 +37,7 @@ try {
     if (!$tableExists) {
         // ایجاد جدول پشتیبان ها
         $sql_supporters = "CREATE TABLE supports (
-            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(255) NOT NULL
         )";
         $conn->exec($sql_supporters);
@@ -52,7 +52,7 @@ try {
     if (!$tableExists) {
         // ایجاد جدول بسته درمانی
         $sql_treatment_packages = "CREATE TABLE treatments (
-            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             package_name VARCHAR(255) NOT NULL,
             doctor_name VARCHAR(255) NOT NULL,
             description TEXT

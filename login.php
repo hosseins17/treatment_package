@@ -4,7 +4,7 @@ session_start();
 // بررسی ارسال فرم لاگین
 if (isset($_POST['login'])) {
     // اتصال به پایگاه داده
-    $conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
+    $conn = mysqli_connect('localhost', 'root', '', 'p5db');
     if (!$conn) {
         die('Could not connect to database: ' . mysqli_connect_error());
     }

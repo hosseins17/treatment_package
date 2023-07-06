@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 session_start();
 
 // بررسی وجود ورود کاربر
@@ -8,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 // اتصال به پایگاه داده
-$conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
+$conn = mysqli_connect('localhost', 'root', '', 'p5db');
 if (!$conn) {
     die('Could not connect to database: ' . mysqli_connect_error());
 }
@@ -24,8 +25,7 @@ $supports = mysqli_query($conn, $query);
 // بررسی ارسال فرم
 if (isset($_POST['submit'])) {
     // دریافت داده‌های فرم
-    $package_id = $_POST['package'];
-    $support_id = $_POST['support'];
+
     $text1 = $_POST['text1'];
     $text2 = $_POST['text2'];
     $uploadedFiles = array();
@@ -42,13 +42,13 @@ if (isset($_POST['submit'])) {
     // اختصاص پشتیبان به صورت رندوم
     $random_support = mysqli_fetch_assoc($supports);
 
-    // ذخیره اطلاعات فرم در پایگاه داده یا هر دیگر عملیاتی که نیاز دارید
+    // ذخیره اطلاعات فرم در پایگاه داده یا هر دیگر عملیاتی که نیاز داریم
     // ...
 
     // ذخیره اطلاعات فرم در فایل اکسل
     $excelData = array(
         'Username' => $_SESSION['username'],
-        'Package' => $_POST['package'],
+        'Package' => 'treatment 1',
         'Support' => $random_support['name'],
         'Text1' => $_POST['text1'],
         'Text2' => $_POST['text2'],
@@ -91,34 +91,25 @@ if (isset($_POST['submit'])) {
     <title>Form</title>
 </head>
 <body>
-<h1>Form</h1>
-<form method="post" action="" enctype="multipart/form-data">
-    <label class="form-label" for="package">Package:</label>
-    <select name="package" id="package" required>
-        <?php while ($row = mysqli_fetch_assoc($treatments)): ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['package_name']; ?></option>
-        <?php endwhile; ?>
-    </select><br>
+<div class="container">
+    <div class="card m-auto p-5 mt-5" style="width: 25rem;">
+        <h3>treatment 1's Form</h3>
+        <form method="post" action="" enctype="multipart/form-data">
+            <label class="form-label" for="text1">Text 1:</label>
+            <input type="text" name="text1" id="text1" class="form-control" required><br>
 
-    <label class="form-label" for="support">Support:</label>
-    <select name="support" id="support" required>
-        <?php mysqli_data_seek($supports, 0); // بازگشت به اولین رکورد ?>
-        <?php while ($row = mysqli_fetch_assoc($supports)): ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-        <?php endwhile; ?>
-    </select><br>
+            <label class="form-label" for="text2">Text 2:</label>
+            <input type="text" name="text2" id="text2" class="form-control" required><br>
 
-    <label class="form-label" for="text1">Text 1:</label>
-    <input type="text" name="text1" id="text1" required><br>
+            <label class="form-label" for="files">Files:</label>
+            <input type="file"  name="files[]" id="files" class="form-control" multiple required><br>
 
-    <label class="form-label" for="text2">Text 2:</label>
-    <input type="text" name="text2" id="text2" required><br>
+            <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
 
-    <label class="form-label" for="files">Files:</label>
-    <input type="file"  name="files[]" id="files" multiple><br>
 
-    <input type="submit" name="submit" value="Submit">
-</form>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
