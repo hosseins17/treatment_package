@@ -25,53 +25,74 @@ Index.php:
 
 
 Main.php:
+
  این کد یک صفحه وب ساده در زبان HTML است که از فریمورک بوت استرپ (Bootstrap) استفاده می‌کند. و بسته های درمانی را به کاربر نمایش می دهد
 
 Login.php:
+
 این کد PHP یک صفحه وب لاگین ساده را پیاده‌سازی می‌کند. در زیر توضیحاتی برای هر قسمت کد آمده است:
 
 session_start(): 
+
 این تابع فرآیند جلسه‌بندی را آغاز می‌کند و به برنامه اجازه می‌دهد اطلاعات جلسه را در حافظه نگهداری کند.
-isset($_POST['login']): 
+isset($_POST['login']):
+
 این شرط بررسی می‌کند که آیا فرم لاگین ارسال شده است یا خیر.
 $conn = mysqli_connect('localhost', 'root', '', 'p5db'): 
+
 این خط اتصال به پایگاه داده را برقرار می‌کند.
 mysqli_num_rows($result) == 1: 
+
 این شرط بررسی می‌کند که آیا نتیجه جستجو در جدول کاربران دارای یک ردیف است یا خیر.
 $_SESSION['username'] = $username: 
+
 این خط نام کاربری را در متغیر جلسه ذخیره می‌کند.
 Header('Location: index.php'):
+
 این دستور به مرورگر می‌گوید که به صفحه index.php هدایت شود.
 <form method="post" action="">:
+ 
 این تگ فرم را تعریف می‌کند و از HTTP POST برای ارسال داده‌ها استفاده می‌کند.
 
 Form.php:
 
 این کد PHP یک فرم وب برای ارسال اطلاعات به پایگاه داده و ذخیره آنها در یک فایل اکسل را پیاده‌سازی می‌کند. در زیر توضیحاتی برای هر قسمت کد آمده است:
 
-- `require 'vendor/autoload.php';`: 
+- `require 'vendor/autoload.php';`:
+- 
 این خط برای بارگیری کتابخانه‌های مورد نیاز برای عملکرد کد استفاده می‌شود. این کتابخانه‌ها با استفاده از Composer نصب شده‌اند.
-- `session_start()`: 
+- `session_start()`:
+- 
 این تابع فرآیند جلسه‌بندی را آغاز می‌کند و به برنامه اجازه می‌دهد اطلاعات جلسه را در حافظه نگهداری کند.
 - `!isset($_SESSION['username'])`:
+- 
 این شرط بررسی می‌کند که آیا کاربر لاگین کرده است یا خیر. اگر کاربر لاگین نکرده باشد، به صفحه لاگین هدایت می‌شود.
-- `header('Location: login.php')`: 
+- `header('Location: login.php')`:
+- 
 این دستور به مرورگر می‌گوید که به صفحه login.php هدایت شود.
-- `$conn = mysqli_connect('localhost', 'root', '', 'p5db')`: 
+- `$conn = mysqli_connect('localhost', 'root', '', 'p5db')`:
+- 
 این خط اتصال به پایگاه داده را برقرار می‌کند. اطلاعات اتصال به پایگاه داده مانند نام کاربری و رمز عبور در اینجا قرار می‌گیرند.
-- `mysqli_num_rows($supports)`: 
+- `mysqli_num_rows($supports)`:
+- 
 این تابع تعداد ردیف‌های موجود در مجموعه‌ی نتایج پرس‌وجو را برمی‌گرداند.
-- `rand(1, $total_rows)`: 
+- `rand(1, $total_rows)`:
+- 
 این تابع عدد تصادفی بین ۱ و تعداد کل ردیف‌ها را برمی‌گرداند.
-- `mysqli_data_seek($supports, $random_row - 1)`: 
+- `mysqli_data_seek($supports, $random_row - 1)`:
+- 
 این تابع به نتیجه پرس‌وجوی جدول supports می‌رود و ردیف مورد نظر را با استفاده از تابع `mysqli_fetch_assoc` برمی‌گرداند.
-- `implode(', ', $uploadedFiles)`: 
+- `implode(', ', $uploadedFiles)`:
+- 
 این تابع عناصر آرایه را با استفاده از یک جداکننده به یک رشته ادغام می‌کند.
-- `\PhpOffice\PhpSpreadsheet\Spreadsheet()`: 
+- `\PhpOffice\PhpSpreadsheet\Spreadsheet()`:
+- 
 این خط یک شیء از کلاس Spreadsheet در کتابخانه PhpSpreadsheet ایجاد می‌کند.
-- `$sheet->fromArray($header, NULL, 'A1')`: 
+- `$sheet->fromArray($header, NULL, 'A1')`:
+- 
 این تابع آرایه‌ی $header را در سلول A1 ورقه فعلی اضافه می‌کند.
-- `\PhpOffice\PhpSpreadsheet\IOFactory::load($excelFile)`: 
+- `\PhpOffice\PhpSpreadsheet\IOFactory::load($excelFile)`:
+- 
 این خط یک شیء از کلاس Spreadsheet را بازگردانده و فایل اکسل موجود را بارگیری می‌کند.
 
 و در اخر در رابطه با یونیت تست از کتابخانه phpunit استفاده شده و جزئیات به شرح زیر می باشد:
