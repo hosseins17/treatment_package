@@ -40,6 +40,9 @@ if (isset($_POST['submit'])) {
     }
 
     // اختصاص پشتیبان به صورت رندوم
+    $total_rows = mysqli_num_rows($supports);
+    $random_row = rand(1, $total_rows);
+    mysqli_data_seek($supports, $random_row - 1);
     $random_support = mysqli_fetch_assoc($supports);
 
     // ذخیره اطلاعات فرم در پایگاه داده یا هر دیگر عملیاتی که نیاز داریم
@@ -76,7 +79,7 @@ if (isset($_POST['submit'])) {
     // ذخیره فایل اکسل
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($excel, 'Xlsx');
     $writer->save($excelFile);
-
+    
     echo 'submitted successfully!';
 }
 ?>
